@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, Pressable, View } from 'react-native';
+import { Platform, Pressable, Text as RNText, View } from 'react-native';
 import Animated, {
   FadeOutUp,
   LayoutAnimationConfig,
@@ -9,17 +9,54 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import * as AccordionPrimitive from '@rn-primitives/accordion';
-import { ChevronDown } from 'lucide-react-native';
+import * as Slot from '@rn-primitives/slot';
+import type { SlottableTextProps, TextRef } from '@rn-primitives/types';
+import { ChevronDown, type LucideIcon } from 'lucide-react-native';
+import { cssInterop } from 'nativewind';
 import { cn } from '../../lib/utils';
-import { iconWithClassName } from './icon';
-import { TextClassContext } from './text';
+
+function iconWithClassName(icon: LucideIcon) {
+  cssInterop(icon, {
+    className: {
+      target: 'style',
+      nativeStyleToProp: {
+        color: true,
+        opacity: true,
+      },
+    },
+  });
+}
 
 iconWithClassName(ChevronDown);
+
+export const TextClassContext = React.createContext<string | undefined>(undefined);
+
+export function AccordionText({
+  className,
+  asChild = false,
+  ...props
+}: SlottableTextProps & { ref?: React.Ref<TextRef> }) {
+  const textClass = React.useContext(TextClassContext);
+  const Component = asChild ? Slot.Text : RNText;
+  return (
+    <Component
+      className={cn('text-base text-foreground web:select-text', textClass, className)}
+      {...props}
+    />
+  );
+}
+
+export type AccordionProps = Omit<React.ComponentProps<typeof AccordionPrimitive.Root>, 'asChild'>;
+export type AccordionItemProps = React.ComponentProps<typeof AccordionPrimitive.Item>;
+export type AccordionTriggerProps = React.ComponentProps<typeof AccordionPrimitive.Trigger> & {
+  children?: React.ReactNode;
+};
+export type AccordionContentProps = React.ComponentProps<typeof AccordionPrimitive.Content>;
 
 function Accordion({
   children,
   ...props
-}: Omit<React.ComponentProps<typeof AccordionPrimitive.Root>, 'asChild'>) {
+}: AccordionProps) {
   return (
     <LayoutAnimationConfig skipEntering>
       <AccordionPrimitive.Root
@@ -36,7 +73,7 @@ function AccordionItem({
   className,
   value,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Item>) {
+}: AccordionItemProps) {
   return (
     <AccordionPrimitive.Item
       className={cn(
@@ -62,9 +99,7 @@ function AccordionTrigger({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Trigger> & {
-  children?: React.ReactNode;
-}) {
+}: AccordionTriggerProps) {
   const { isExpanded } = AccordionPrimitive.useItemContext();
 
   const progress = useDerivedValue(
@@ -105,7 +140,7 @@ function AccordionContent({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Content>) {
+}: AccordionContentProps) {
   const { isExpanded } = AccordionPrimitive.useItemContext();
 
   return (
