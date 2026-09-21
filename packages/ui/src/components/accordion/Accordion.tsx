@@ -27,9 +27,9 @@ function iconWithClassName(icon: LucideIcon) {
   });
 }
 
-iconWithClassName(ChevronDown);
+import { TextClassContext } from '../../lib/text-context';
 
-export const TextClassContext = React.createContext<string | undefined>(undefined);
+iconWithClassName(ChevronDown);
 
 export function AccordionText({
   className,
