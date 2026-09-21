@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react-native';
+import type { LucideIcon, LucideProps } from 'lucide-react-native';
 import { cssInterop } from 'nativewind';
 import * as React from 'react';
 
@@ -14,11 +14,9 @@ export function iconWithClassName(icon: LucideIcon) {
   });
 }
 
-export interface IconProps {
+export interface IconProps extends LucideProps {
   as: LucideIcon;
   className?: string;
-  size?: number;
-  color?: string;
 }
 
 export function Icon({
