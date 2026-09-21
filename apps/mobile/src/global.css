@@ -23,9 +23,88 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 63%;
     --radius: 0.625rem;
+
+    /* 1. Mavi (Blue) - 10 Ton */
+    --ui-color-blue-50: #eff6ff;
+    --ui-color-blue-100: #dbeafe;
+    --ui-color-blue-200: #bfdbfe;
+    --ui-color-blue-300: #93c5fd;
+    --ui-color-blue-400: #60a5fa;
+    --ui-color-blue-500: #3b82f6;
+    --ui-color-blue-600: #2563eb;
+    --ui-color-blue-700: #1d4ed8;
+    --ui-color-blue-800: #1e40af;
+    --ui-color-blue-900: #1e3a8a;
+
+    /* 2. Nötr (Neutral / Slate) - 10 Ton */
+    --ui-color-neutral-50: #f8fafc;
+    --ui-color-neutral-100: #f1f5f9;
+    --ui-color-neutral-200: #e2e8f0;
+    --ui-color-neutral-300: #cbd5e1;
+    --ui-color-neutral-400: #94a3b8;
+    --ui-color-neutral-500: #64748b;
+    --ui-color-neutral-600: #475569;
+    --ui-color-neutral-700: #334155;
+    --ui-color-neutral-800: #1e293b;
+    --ui-color-neutral-900: #0f172a;
+    --ui-color-neutral-950: #0b0f19;
+
+    /* 3. Sarı (Yellow / Amber) - 10 Ton */
+    --ui-color-yellow-50: #fffbeb;
+    --ui-color-yellow-100: #fef3c7;
+    --ui-color-yellow-200: #fde68a;
+    --ui-color-yellow-300: #fcd34d;
+    --ui-color-yellow-400: #fbbf24;
+    --ui-color-yellow-500: #f59e0b;
+    --ui-color-yellow-600: #d97706;
+    --ui-color-yellow-700: #b45309;
+    --ui-color-yellow-800: #92400e;
+    --ui-color-yellow-900: #78350f;
+
+    /* 4. Kırmızı (Red) - 10 Ton */
+    --ui-color-red-50: #fef2f2;
+    --ui-color-red-100: #fee2e2;
+    --ui-color-red-200: #fecaca;
+    --ui-color-red-300: #fca5a5;
+    --ui-color-red-400: #f87171;
+    --ui-color-red-500: #ef4444;
+    --ui-color-red-600: #dc2626;
+    --ui-color-red-700: #b91c1c;
+    --ui-color-red-800: #991b1b;
+    --ui-color-red-900: #7f1d1d;
+
+    /* 5. Yeşil (Green / Emerald) - 10 Ton */
+    --ui-color-green-50: #ecfdf5;
+    --ui-color-green-100: #d1fae5;
+    --ui-color-green-200: #a7f3d0;
+    --ui-color-green-300: #6ee7b7;
+    --ui-color-green-400: #34d399;
+    --ui-color-green-500: #10b981;
+    --ui-color-green-600: #059669;
+    --ui-color-green-700: #047857;
+    --ui-color-green-800: #065f46;
+    --ui-color-green-900: #064e3b;
+
+    /* Semantik Renk Değişkenleri: LIGHT */
+    --ui-bg-primary: #f8fafc;
+    --ui-bg-surface: rgba(255, 255, 255, 0.75);
+    --ui-bg-surface-hover: rgba(241, 245, 249, 0.9);
+    --ui-border: rgba(15, 23, 42, 0.08);
+    --ui-border-glow: rgba(16, 185, 129, 0.4);
+
+    --ui-text-1: #0f172a;
+    --ui-text-2: #1e293b;
+    --ui-text-3: #334155;
+    --ui-text-4: #475569;
+    --ui-text-5: #64748b;
+    --ui-text-6: #64748b;
+
+    --ui-text-primary: #0f172a;
+    --ui-text-secondary: #475569;
+    --ui-text-muted: #64748b;
   }
 
-  .dark:root {
+  .dark:root, .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -44,11 +123,29 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 300 0% 45%;
+
+    /* Semantik Renk Değişkenleri: DARK */
+    --ui-bg-primary: #0b0f19;
+    --ui-bg-surface: rgba(20, 27, 45, 0.65);
+    --ui-bg-surface-hover: rgba(30, 41, 67, 0.8);
+    --ui-border: rgba(255, 255, 255, 0.08);
+    --ui-border-glow: rgba(16, 185, 129, 0.4);
+
+    --ui-text-1: #f8fafc;
+    --ui-text-2: #f1f5f9;
+    --ui-text-3: #e2e8f0;
+    --ui-text-4: #cbd5e1;
+    --ui-text-5: #94a3b8;
+    --ui-text-6: #64748b;
+
+    --ui-text-primary: #f8fafc;
+    --ui-text-secondary: #cbd5e1;
+    --ui-text-muted: #64748b;
   }
 
   :root {
     --font-display:
-      Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+      Inter, Spline Sans, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
       Segoe UI Symbol, Noto Color Emoji;
     --font-mono:
       ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;

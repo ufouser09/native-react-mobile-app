@@ -59,7 +59,7 @@ export function Paragraph(props: ThemedTextProps) {
   return <ThemedText type="default" {...props} />;
 }
 
-export function Caption(props: ThemedTextProps) {
+export function ThemedCaption(props: ThemedTextProps) {
   return <ThemedText type="small" {...props} />;
 }
 
